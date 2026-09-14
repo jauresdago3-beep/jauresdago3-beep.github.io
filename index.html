@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ACTU CACHÉE 225 - LIVE ABIDJAN</title>
+<meta name="monetag" content="de517d44656a1e63e7c8b052382023be">
+<title>ACTU CACHEE 225 - LIVE ABIDJAN</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0a0a0a;color:#fff;font-family:sans-serif;padding-bottom:80px}
 header{background:#000;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid #ff3c00;position:sticky;top:0;z-index:100}
 .logo{font-weight:900;font-size:20px}.logo span{color:#ff3c00}
-.live{background:#ff3c00;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:800}
 .nav{display:flex;gap:8px;overflow-x:auto;padding:12px 16px;background:#111}
 .nav button{white-space:nowrap;border:none;padding:8px 14px;border-radius:20px;font-weight:700;font-size:13px;background:#222;color:#aaa}
 .nav button.active{background:#ff3c00;color:#fff}
@@ -17,70 +17,34 @@ header{background:#000;padding:12px 16px;display:flex;justify-content:space-betw
 .card img{width:100%;height:200px;object-fit:cover}
 .card-body{padding:14px}
 .badge{background:#ff3c00;color:#fff;font-size:10px;padding:3px 7px;border-radius:4px;font-weight:800;display:inline-block;margin-bottom:8px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 16px 16px}
-.grid .card{margin:0}.grid .card img{height:130px}
-.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%);background:#ff3c00;color:#fff;padding:10px 18px;border-radius:20px;font-size:13px;font-weight:700;display:none;z-index:200}
-/* PUB STYLE */
-.pub-box{background:#111;border:1px dashed #ff3c00;border-radius:12px;margin:12px 16px;padding:12px;text-align:center}
-.pub-box a{display:block;background:#ff3c00;color:#fff;padding:12px;border-radius:8px;font-weight:800;text-decoration:none;font-size:14px}
+.pub-box{background:#111;border:1px dashed #444;border-radius:12px;margin:12px 16px;padding:12px;text-align:center}
 .pub-label{font-size:10px;color:#666;letter-spacing:1px;margin-bottom:6px}
-.sticky-pub{position:fixed;bottom:0;left:0;right:0;background:#000;border-top:2px solid #ff3c00;padding:8px 12px;z-index:99;display:flex;align-items:center;gap:10px}
-.sticky-pub a{flex:1;background:#ff3c00;color:#fff;text-align:center;padding:10px;border-radius:8px;font-weight:800;text-decoration:none}
-.close-pub{background:#222;border:none;color:#fff;width:28px;height:28px;border-radius:50%}
-#searchBar{display:none;padding:10px 16px;background:#111}
-#searchBar input{width:100%;padding:10px;border-radius:20px;border:none;background:#222;color:#fff}
 </style>
 </head>
 <body>
-<header><div class="logo">ACTU <span>CACHÉE</span> 225</div><div class="live">LIVE</div></header>
-
-<!-- PUB 1 - HAUT -->
-<div class="pub-box">
-<div class="pub-label">PUBLICITÉ</div>
-<a href="TON-LIEN-PUB-ICI" target="_blank" onclick="showToast('Pub cliquée 💰')">🔥 GAGNE 5000F/JOUR ICI - CLIQUE 🔥</a>
-</div>
+<header><div class="logo">ACTU <span>CACHEE</span> 225</div><div style="background:#ff3c00;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:800">LIVE</div></header>
 
 <div class="nav">
-<button class="active" onclick="filterCat('une',this)">À la Une</button>
-<button onclick="filterCat('buzz',this)">Buzz 225</button>
-<button onclick="filterCat('politique',this)">Politique</button>
-<button onclick="filterCat('drame',this)">Drame</button>
-<button onclick="filterCat('people',this)">People</button>
-<button onclick="toggleSearch()">🔍</button>
+<button class="active">À la Une</button>
+<button>Buzz 225</button>
+<button>Politique</button>
+<button>Drame</button>
+<button>People</button>
 </div>
 
-<div id="searchBar"><input id="q" oninput="searchNow(this.value)" placeholder="Rechercher..."></div>
-
-<div id="articles">
-<div class="card" data-cat="une"><img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800"><div class="card-body"><span class="badge">EXCLUSIF</span><h2>Ce que les médias ne montrent pas hier à Yopougon</h2><p>Notre équipe était sur place...</p></div></div>
-
-<!-- PUB 2 - MILIEU -->
 <div class="pub-box">
-<div class="pub-label">SPONSORISÉ - ABIDJAN</div>
-<a href="TON-LIEN-PUB-ICI" target="_blank">📱 Télécharge l'app qui paie à Abidjan - 1000F offert</a>
+<div class="pub-label">PUBLICITE</div>
+<div id="monetag-ad-1">Chargement publicité...</div>
 </div>
 
-<div class="grid">
-<div class="card" data-cat="buzz"><img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600"><div class="card-body"><h3>Didi B choque la toile</h3></div></div>
-<div class="card" data-cat="politique"><img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=600"><div class="card-body"><h3>Prix carburant ce soir ?</h3></div></div>
-<div class="card" data-cat="drame"><img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?w=600"><div class="card-body"><h3>Drame évité à Yopougon</h3></div></div>
-<div class="card" data-cat="people"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600"><div class="card-body"><h3>Himra bat un record</h3></div></div>
-</div>
-</div>
+<div class="card"><img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800"><div class="card-body"><span class="badge">EXCLUSIF</span><h2>Ce que les médias ne montrent pas hier à Yopougon</h2><p>Notre équipe était sur place...</p></div></div>
 
-<!-- PUB 3 - STICKY BAS QUI RESTE -->
-<div class="sticky-pub" id="stickyPub">
-<a href="TON-LIEN-PUB-ICI" target="_blank">💰 CLIQUE ICI POUR GAGNER - PUB 225</a>
-<button class="close-pub" onclick="document.getElementById('stickyPub').style.display='none'">X</button>
+<div class="pub-box">
+<div class="pub-label">SPONSORISE</div>
+<div id="monetag-ad-2">Chargement publicité...</div>
 </div>
 
-<div class="toast" id="toast"></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?w=800"><div class="card-body"><h3>Drame évité à Yopougon - VIDÉO</h3></div></div>
 
-<script>
-function showToast(t){let el=document.getElementById('toast');el.innerText=t;el.style.display='block';setTimeout(()=>el.style.display='none',2500)}
-function filterCat(cat,btn){document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');document.querySelectorAll('#articles .card').forEach(c=>{if(!c.dataset.cat)return;if(cat==='une')c.style.display='block';else c.style.display=c.dataset.cat===cat?'block':'none'});showToast(cat.toUpperCase()+' ✅')}
-function toggleSearch(){let s=document.getElementById('searchBar');s.style.display=s.style.display==='block'?'none':'block'}
-function searchNow(v){v=v.toLowerCase();document.querySelectorAll('#articles .card').forEach(c=>{if(c.classList.contains('pub-box'))return;c.style.display=c.innerText.toLowerCase().includes(v)?'block':'none'})}
-</script>
 </body>
 </html>
