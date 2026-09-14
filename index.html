@@ -3,121 +3,180 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>INFO ABIDJAN 24/7 - Actualité Yopougon</title>
-<meta name="description" content="Toute l'actualité d'Abidjan et de la Côte d'Ivoire en continu : vidéos, reportages et témoignages.">
-
-<!-- Publicité display légitime : remplace data-zone par l'ID de ton espace Monetag/AdSense display
-<script src="https://fpyf8.com/88/tag.min.js" data-zone="TON_ID_ZONE_DISPLAY" async data-cfasync="false"></script>
--->
+<title>INFO ABIDJAN 24/7</title>
+<meta name="description" content="Toute l'actualité d'Abidjan : vidéos, reportages et témoignages vérifiés.">
+<meta property="og:title" content="INFO ABIDJAN 24/7 — Actualité">
+<meta property="og:description" content="L'information vérifiée d'Abidjan en continu.">
+<meta property="og:type" content="article">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial, sans-serif;background:#f0f2f5}
-.header{background:#e60000;color:white;padding:12px;text-align:center;position:sticky;top:0;z-index:100}
-.header h1{font-size:18px}
-.container{max-width:500px;margin:auto;background:white;min-height:100vh}
-.badge{background:#ffeb00;color:#000;padding:3px 8px;border-radius:5px;font-size:12px;font-weight:bold}
+body{font-family:Arial,sans-serif;background:#f0f2f5;color:#111}
+body.sombre{background:#111;color:#eee}
+.header{background:#e60000;color:#fff;padding:12px;text-align:center;position:sticky;top:0;z-index:100;font-size:18px;font-weight:bold}
+.header button{position:absolute;right:10px;top:9px;background:none;border:1px solid #fff;color:#fff;border-radius:6px;padding:4px 10px;cursor:pointer}
+.container{max-width:500px;margin:auto;background:#fff;min-height:100vh}
+body.sombre .container{background:#1e1e1e}
 .article{padding:15px}
-.article h2{font-size:22px;line-height:1.3;margin:10px 0}
+.badge{background:#ffeb00;color:#000;padding:3px 8px;border-radius:5px;font-size:12px;font-weight:bold}
+h2{font-size:22px;line-height:1.3;margin:10px 0}
 .article img,.article iframe{width:100%;border-radius:10px;margin:10px 0;aspect-ratio:16/9;border:none}
 .author{display:flex;align-items:center;gap:10px;font-size:13px;color:gray;margin-bottom:10px}
 .author img{width:35px;height:35px;border-radius:50%}
-.ad-slot{background:#eee;border:1px dashed #bbb;border-radius:10px;text-align:center;padding:30px 10px;margin:15px 0;color:#888;font-size:13px}
-.btn-green{background:#25D366;color:white;border:none;padding:12px;width:100%;border-radius:8px;font-size:16px;font-weight:bold;cursor:pointer}
-.btn-green:active{opacity:.85}
+.meta{display:flex;justify-content:space-between;font-size:12px;color:gray;margin:8px 0}
+.ad{background:#eee;border:1px dashed #bbb;border-radius:10px;text-align:center;padding:30px 10px;margin:15px 0;color:#888;font-size:13px}
+body.sombre .ad{background:#2a2a2a;border-color:#444;color:#999}
+.btn{display:block;width:100%;border:none;padding:13px;border-radius:8px;font-size:16px;font-weight:bold;cursor:pointer;margin-top:10px}
+.btn-wa{background:#25D366;color:#fff}
+.btn-lien{background:none;border:1px solid #ccc;color:#555;font-size:14px}
+body.sombre .btn-lien{border-color:#444;color:#aaa}
 .comments{padding:15px;background:#f0f2f5;margin-top:15px}
-.comment{background:white;padding:10px;border-radius:10px;margin-bottom:10px;display:flex;gap:10px}
-.comment img{width:35px;height:35px;border-radius:50%}
-.comment-form{display:flex;gap:8px;margin-bottom:15px}
-.comment-form input{flex:1;padding:10px;border:1px solid #ddd;border-radius:8px;font-size:14px}
-.comment-form button{background:#e60000;color:white;border:none;padding:10px 15px;border-radius:8px;font-weight:bold;cursor:pointer}
+body.sombre .comments{background:#161616}
+.comment{background:#fff;padding:10px;border-radius:10px;margin-bottom:10px;display:flex;gap:10px;font-size:14px}
+body.sombre .comment{background:#1e1e1e}
+.comment img{width:35px;height:35px;border-radius:50%;flex-shrink:0}
+.form-com{display:flex;flex-direction:column;gap:8px;margin-bottom:15px}
+.form-com input,.form-com textarea{padding:10px;border:1px solid #ddd;border-radius:8px;font-size:14px;font-family:inherit}
+body.sombre .form-com input,body.sombre .form-com textarea{background:#1e1e1e;color:#eee;border-color:#444}
+.form-com button{background:#e60000;color:#fff;border:none;padding:10px;border-radius:8px;font-weight:bold;cursor:pointer;align-self:flex-end}
 footer{text-align:center;font-size:12px;color:#999;padding:20px}
 </style>
 </head>
 <body>
-<div class="header"><h1>🔴 INFO ABIDJAN 24/7</h1></div>
+
+<div class="header">🔴 INFO ABIDJAN 24/7 <button id="btnTheme">🌙</button></div>
 
 <div class="container">
 <div class="article">
+
 <span class="badge">ACTUALITÉ</span>
 <h2>Yopougon : la police intervient dans la nuit de vendredi à samedi</h2>
 
 <div class="author">
-<img src="https://i.pravatar.cc/100?img=12" alt="Serge Koffi">
-<div><b>Serge Koffi</b> - Rédaction<br><time datetime="2026-09-14">Publié le 14 septembre 2026</time></div>
+<img src="https://i.pravatar.cc/100?img=12" alt="">
+<div><b>Serge Koffi</b> — Rédaction<br>Publié le 14 septembre 2026</div>
 </div>
 
-<!-- Remplace SRC par l'URL d'intégration de ta vraie vidéo YouTube :
-https://www.youtube.com/embed/VIDEO_ID -->
-<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-  title="Vidéo : intervention de police à Yopougon"
-  allowfullscreen
-  loading="lazy"></iframe>
+<div class="meta"><span id="vues">—</span><span>⏱ 2 min de lecture</span></div>
+
+<!-- Remplace VIDEO_ID par l'ID de ta vraie vidéo YouTube -->
+<iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Vidéo" allowfullscreen loading="lazy"></iframe>
 
 <p>Une intervention de police a eu lieu dans la nuit de vendredi à samedi dans le quartier Maroc, à Yopougon. Les forces de l'ordre sont intervenues après un signalement des riverains.</p>
 <br>
-<p><b>Contactez la rédaction :</b> si tu détiens des images ou des informations vérifiables sur cet événement, écris-nous sur notre page officielle. Les contenus non vérifiés ne seront pas relayés.</p>
+<p><b>Contactez la rédaction :</b> si tu détiens des images ou des informations vérifiables, écris-nous sur notre page officielle.</p>
 
-<!-- Emplacement publicitaire honnête : le lecteur sait que c'est de la pub -->
-<div class="ad-slot">Publicité</div>
+<div class="ad">Publicité</div>
 
-<button class="btn-green" onclick="partagerWhatsApp()">Partager sur WhatsApp 📲</button>
+<button class="btn btn-wa" id="btnWA">Partager sur WhatsApp 📲</button>
+<button class="btn btn-lien" id="btnCopie">Copier le lien 🔗</button>
 
 <div class="comments">
-<h4>Commentaires (<span id="nbComments">3</span>)</h4>
-<div class="comment-form">
+<h4>Commentaires (<span id="nbCom">0</span>)</h4>
+<div class="form-com">
 <input type="text" id="pseudo" placeholder="Ton pseudo" maxlength="30">
-<input type="text" id="message" placeholder="Ton commentaire (reste respectueux)" maxlength="300">
-<button onclick="ajouterCommentaire()">Envoyer</button>
+<textarea id="message" rows="2" placeholder="Ton commentaire (reste respectueux)" maxlength="300"></textarea>
+<button id="btnEnvoyer">Envoyer</button>
 </div>
-<div id="listeComments">
-<div class="comment"><img src="https://i.pravatar.cc/100?img=5" alt=""><div><b>Aminata Y.</b><br>On a entendu les sirènes vers 2h, mais personne ne savait ce qui se passait.</div></div>
-<div class="comment"><img src="https://i.pravatar.cc/100?img=8" alt=""><div><b>Junior B.</b><br>Merci pour l'info, c'est rare d'avoir des précisions.</div></div>
-<div class="comment"><img src="https://i.pravatar.cc/100?img=15" alt=""><div><b>Bintou K.</b><br>En espérant que tout le monde va bien.</div></div>
-</div>
+<div id="listeCom"></div>
 </div>
 
 </div>
-<footer>
-© 2026 INFO ABIDJAN 24/7 — Contenu journalistique. Les commentaires n'engagent que leurs auteurs.
-</footer>
+<footer>© 2026 INFO ABIDJAN 24/7 — Contenu journalistique.</footer>
 </div>
 
 <script>
-function partagerWhatsApp(){
-  const url = encodeURIComponent(window.location.href);
-  const titre = encodeURIComponent(document.title);
-  window.open('https://wa.me/?text=' + titre + '%20' + url, '_blank');
-}
+(function(){
+  "use strict";
+  var CLE_VUES = 'vues_yopougon';
+  var CLE_COMS = 'coms_yopougon';
 
-function ajouterCommentaire(){
-  const pseudo = document.getElementById('pseudo').value.trim();
-  const message = document.getElementById('message').value.trim();
-  if(!pseudo || !message) { alert('Remplis ton pseudo et ton commentaire.'); return; }
+  function $(id){ return document.getElementById(id); }
 
-  // Échapper le HTML pour éviter l'injection XSS
-  const div = document.createElement('div');
-  div.className = 'comment';
-  const img = document.createElement('img');
-  img.src = 'https://i.pravatar.cc/100?img=' + Math.ceil(Math.random()*70);
-  img.alt = '';
-  const txt = document.createElement('div');
-  const b = document.createElement('b');
-  b.textContent = pseudo;
-  txt.appendChild(b);
-  txt.appendChild(document.createElement('br'));
-  txt.appendChild(document.createTextNode(message));
-  div.appendChild(img);
-  div.appendChild(txt);
+  /* ---- Vues ---- */
+  var v = parseInt(localStorage.getItem(CLE_VUES) || '0', 10) + 1;
+  localStorage.setItem(CLE_VUES, String(v));
+  $('vues').textContent = v + (v > 1 ? ' vues' : ' vue');
 
-  const liste = document.getElementById('listeComments');
-  liste.prepend(div);
-  document.getElementById('message').value = '';
+  /* ---- Thème ---- */
+  function majTheme(){
+    var sombre = document.body.classList.contains('sombre');
+    $('btnTheme').textContent = sombre ? '☀️' : '🌙';
+    try { localStorage.setItem('theme', sombre ? 'sombre' : 'clair'); } catch(e){}
+  }
+  try { if(localStorage.getItem('theme') === 'sombre') document.body.classList.add('sombre'); } catch(e){}
+  majTheme();
 
-  // Mise à jour du compteur
-  const compteur = document.getElementById('nbComments');
-  compteur.textContent = parseInt(compteur.textContent, 10) + 1;
-}
+  /* ---- Commentaires ---- */
+  function chargerComs(){
+    var liste = [];
+    try { liste = JSON.parse(localStorage.getItem(CLE_COMS) || '[]'); } catch(e){}
+    var cont = $('listeCom');
+    cont.innerHTML = '';
+    for(var i = 0; i < liste.length; i++){
+      var c = liste[i];
+      var div = document.createElement('div');
+      div.className = 'comment';
+      var img = document.createElement('img');
+      img.src = c.avatar; img.alt = '';
+      var txt = document.createElement('div');
+      var b = document.createElement('b');
+      b.textContent = c.pseudo;
+      var t = document.createElement('small');
+      t.textContent = ' · ' + new Date(c.date).toLocaleString('fr-FR');
+      txt.appendChild(b); txt.appendChild(t);
+      txt.appendChild(document.createElement('br'));
+      txt.appendChild(document.createTextNode(c.message));
+      div.appendChild(img); div.appendChild(txt);
+      cont.appendChild(div);
+    }
+    $('nbCom').textContent = String(liste.length);
+  }
+
+  $('btnEnvoyer').addEventListener('click', function(){
+    var pseudo = $('pseudo').value.trim();
+    var message = $('message').value.trim();
+    if(!pseudo || !message){ alert('Remplis ton pseudo et ton commentaire.'); return; }
+    var c = {
+      pseudo: pseudo, message: message,
+      avatar: 'https://i.pravatar.cc/100?img=' + (1 + Math.floor(Math.random()*70)),
+      date: Date.now()
+    };
+    var liste = [];
+    try { liste = JSON.parse(localStorage.getItem(CLE_COMS) || '[]'); } catch(e){}
+    liste.unshift(c);
+    try { localStorage.setItem(CLE_COMS, JSON.stringify(liste)); } catch(e){}
+    $('message').value = '';
+    chargerComs();
+  });
+
+  /* ---- Partage WhatsApp ---- */
+  $('btnWA').addEventListener('click', function(){
+    var texte = encodeURIComponent(document.title + ' ' + location.href);
+    window.open('https://wa.me/?text=' + texte, '_blank');
+  });
+
+  /* ---- Copier le lien ---- */
+  $('btnCopie').addEventListener('click', function(){
+    var btn = this;
+    function ok(){ btn.textContent = 'Lien copié ✅'; setTimeout(function(){ btn.textContent = 'Copier le lien 🔗'; }, 2000); }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(location.href).then(ok);
+    } else {
+      var i = document.createElement('input');
+      i.value = location.href; document.body.appendChild(i);
+      i.select(); document.execCommand('copy'); document.body.removeChild(i); ok();
+    }
+  });
+
+  /* ---- Thème (dernier, après que tout existe) ---- */
+  $('btnTheme').addEventListener('click', function(){
+    document.body.classList.toggle('sombre');
+    majTheme();
+  });
+
+  chargerComs();
+})();
 </script>
 </body>
 </html>
