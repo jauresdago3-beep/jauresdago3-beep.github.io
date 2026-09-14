@@ -1,0 +1,21 @@
+name: Robot Actu 225
+on:
+  schedule:
+    - cron: '0 */2 * * *'
+  workflow_dispatch:
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Met a jour la date
+        run: |
+          DATE=$(date)
+          echo "Derniere mise a jour: $DATE" > update.txt
+      - name: Sauvegarder
+        run: |
+          git config user.name "Robot 225"
+          git config user.email "robot@actu225.ci"
+          git add update.txt
+          git commit -m "Mise a jour auto $DATE" || echo "Rien a faire"
+          git push
