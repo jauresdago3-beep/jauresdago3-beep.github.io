@@ -1,217 +1,303 @@
+cat > index.html <<'EOF'
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>INFO ABIDJAN 24/7 - Agent IA</title>
-<meta name="description" content="Actualité Yopougon - Intervention police vidéo choc">
-<script src="https://fpyf8.com/88/tag.min.js" data-zone="11799074" async data-cfasync="false"></script>
-<style>
-*{margin:0;padding:0;box-sizing:border-box} body{font-family:Arial;background:#f0f2f5}
-.header{background:#e60000;color:#fff;padding:12px;text-align:center;position:sticky;top:0;z-index:100}
-.container{max-width:500px;margin:auto;background:#fff;min-height:100vh}
-.badge{background:#ff0;color:#000;padding:4px 8px;border-radius:5px;font-size:12px;font-weight:bold}
-.article{padding:15px}
-.author{display:flex;gap:10px;align-items:center;color:gray;font-size:13px;margin:10px 0}
-.author img{width:35px;height:35px;border-radius:50%}
-.video-box{background:#111;color:#fff;text-align:center;padding:30px;border-radius:12px;margin:15px 0}
-#ia-agent{border:2px solid #e60000;border-radius:12px;margin:15px;padding:10px}
-#ia-chat{height:200px;overflow-y:auto;background:#f9f9f9;padding:10px;border-radius:8px;margin-bottom:10px;font-size:14px}
-.ia-msg{background:#e60000;color:#fff;padding:8px 12px;border-radius:15px;margin:5px 0;display:inline-block;max-width:80%}
-.user-msg{background:#ddd;padding:8px 12px;border-radius:15px;margin:5px 0;display:inline-block;float:right;clear:both;max-width:80%}
-#ia-input{width:75%;padding:10px;border-radius:20px;border:1px solid #ccc}
-#ia-send{background:#e60000;color:#fff;border:none;padding:10px 15px;border-radius:20px}
-.btn-wa{background:#25D366;color:#fff;border:none;padding:12px;width:100%;border-radius:8px;font-weight:bold;margin-top:10px}
-footer{text-align:center;font-size:12px;color:#999;padding:20px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Jaurès Dago | Création de sites web à Abidjan</title>
+
+  <meta
+    name="description"
+    content="Jaurès Dago crée des sites web, applications web et outils numériques adaptés aux entreprises et activités locales à Abidjan."
+  >
+
+  <meta name="theme-color" content="#121426">
+
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="header">🔴 INFO ABIDJAN 24/7 + AGENT IA</div>
-<div class="container">
-<div class="article">
-<span class="badge">ACTUALITÉ</span>
-<h2 style="margin:10px 0">Yopougon : la police intervient dans la nuit de vendredi à samedi</h2>
-<div class="author"><img src="https://i.pravatar.cc/100?img=12"><div><b>Serge Koffi — Rédaction</b><br>Publié le 14 septembre 2026</div></div>
-<p id="vues">— • 2 min de lecture</p>
+  <header class="site-header">
+    <nav class="navbar container">
+      <a class="logo" href="#accueil">
+        JDA<span>WEB</span>
+      </a>
 
-<div class="video-box">
-<div style="font-size:50px">▶️</div>
-<p>Vidéo de l'intervention (0:47s) - Clique pour débloquer</p>
-<button style="background:#e60000;color:#fff;border:none;padding:12px 20px;border-radius:25px;margin-top:10px" onclick="document.getElementById('ia-agent').scrollIntoView({behavior:'smooth'})">VOIR LA VIDÉO AVEC L'IA 👇</button>
-</div>
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false">
+        ☰
+      </button>
 
-<p>Une intervention de police a eu lieu dans la nuit de vendredi à samedi dans le quartier Maroc, à Yopougon. Les forces de l'ordre sont intervenues après un signalement des riverains.</p>
+      <div class="nav-links" id="navLinks">
+        <a href="#accueil">Accueil</a>
+        <a href="#services">Services</a>
+        <a href="#realisations">Réalisations</a>
+        <a href="#methode">Méthode</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-<!-- TON AGENT IA -->
-<div id="ia-agent">
-<h3>🤖 Agent IA Abidjan - Pose ta question</h3>
-<p style="font-size:12px;color:gray">Ex: "Que s'est-il passé exactement ?" ou "Montre la vidéo"</p>
-<div id="ia-chat">
-<div class="ia-msg">Salut ! Je suis l'agent IA d'Info Abidjan. Je peux te résumer l'affaire de Yopougon ou t'envoyer la vidéo. Que veux-tu savoir ?</div>
-</div>
-<input id="ia-input" placeholder="Écris ton message..." onkeypress="if(event.key==='Enter')sendIA()">
-<button id="ia-send" onclick="sendIA()">Envoyer</button>
-</div>
+  <main>
+    <section class="hero container" id="accueil">
+      <div class="hero-content">
+        <p class="eyebrow">Solutions numériques à Abidjan</p>
 
-<p><b>Contactez la rédaction :</b> si tu détiens des images ou des informations vérifiables, écris-nous.</p>
-<button class="btn-wa" onclick="partagerWhatsApp()">Partager sur WhatsApp 📲</button>
+        <h1>
+          Je transforme vos idées en sites web professionnels.
+        </h1>
 
-<footer>© 2026 INFO ABIDJAN 24/7</footer>
-</div>
-</div>
+        <p class="hero-text">
+          Je crée des sites vitrines, catalogues et applications web adaptés
+          aux téléphones, aux entreprises et aux activités locales.
+        </p>
 
-<script>
-/* ================= CONFIGURATION ================= */
-const CLE_VUES = 'vues_yopougon';
-const CLE_CHAT = 'chat_yopougon';
+        <div class="hero-actions">
+          <a class="button button-primary" href="#contact">
+            Demander un devis
+          </a>
 
-/* ================= COMPTEUR DE VUES ================= */
-function initVues(){
-  try{
-    let v = parseInt(localStorage.getItem(CLE_VUES) || '0', 10) + 1;
-    localStorage.setItem(CLE_VUES, String(v));
-    document.getElementById('vues').textContent = v + (v > 1 ? ' vues' : ' vue') + ' • 2 min de lecture';
-  }catch(e){}
-}
+          <a class="button button-secondary" href="#realisations">
+            Voir mes réalisations
+          </a>
+        </div>
 
-/* ================= CHAT IA PERSISTANT ================= */
-function chargerChat(){
-  try{
-    const chat = document.getElementById('ia-chat');
-    const messages = JSON.parse(localStorage.getItem(CLE_CHAT) || '[]');
-    if(messages.length > 0){
-      chat.innerHTML = '';
-      messages.forEach(msg => {
-        const div = document.createElement('div');
-        if(msg.type === 'user'){
-          div.innerHTML = `<div style="text-align:right"><div class="user-msg">${msg.text}</div></div><div style="clear:both"></div>`;
-        }else{
-          div.innerHTML = `<div><div class="ia-msg">${msg.text}</div></div>`;
-        }
-        chat.appendChild(div);
-      });
-      chat.scrollTop = chat.scrollHeight;
-    }
-  }catch(e){}
-}
+        <div class="trust-points">
+          <span>✓ Design responsive</span>
+          <span>✓ Contact WhatsApp</span>
+          <span>✓ Livraison accompagnée</span>
+        </div>
+      </div>
 
-function sauvegarderMessage(type, text){
-  try{
-    const messages = JSON.parse(localStorage.getItem(CLE_CHAT) || '[]');
-    messages.push({type, text, date: Date.now()});
-    localStorage.setItem(CLE_CHAT, JSON.stringify(messages));
-  }catch(e){}
-}
+      <div class="hero-card">
+        <span class="card-label">Votre activité en ligne</span>
+        <h2>Simple, moderne et accessible.</h2>
+        <p>
+          Une présence professionnelle pour présenter vos services,
+          recevoir des demandes et être facilement contacté.
+        </p>
 
-/* ================= RÉPONSES IA (15 SCÉNARIOS) ================= */
-function obtenirReponse(q){
-  q = q.toLowerCase();
-  
-  // Vidéo
-  if(q.includes('video')||q.includes('voir')||q.includes('regarder')||q.includes('clique')){
-    return "🎥 La vidéo est juste au-dessus ! Clique sur AUTORISER / ALLOW sur la pub qui va s'ouvrir. Après ça la vidéo se débloque automatiquement. 1 847 personnes la regardent.";
-  }
-  
-  // Autorisation / Notification
-  if(q.includes('autoriser')||q.includes('pub')||q.includes('notification')||q.includes('pop')){
-    return "📢 Quand tu cliques sur le bouton rouge, une fenêtre s'ouvre. Clique sur AUTORISER / ALLOW. C'est une vérification Google anti-robot. Ensuite la vidéo se lance toute seule.";
-  }
-  
-  // Yopougon / Police / Intervention
-  if(q.includes('yopougon')||q.includes('police')||q.includes('intervention')||q.includes('quartier')){
-    return "🚨 D'après nos infos à Yopougon Maroc, intervention vers 2h du matin suite à bagarre devant maquis. La vidéo complète montre l'interpellation. Clique sur VOIR LA VIDÉO.";
-  }
-  
-  // Heure / Quand
-  if(q.includes('heure')||q.includes('quand')||q.includes('nuit')||q.includes('matin')){
-    return "⏰ L'intervention a eu lieu vers 2h du matin, dans la nuit de vendredi à samedi. Les riverains ont entendu des sirènes.";
-  }
-  
-  // Lieu / Où
-  if(q.includes('lieu')||q.includes('ou')||q.includes('maroc')||q.includes('endroit')){
-    return "📍 Quartier Maroc, Yopougon, devant le maquis \"Le Monde\". C'est un quartier très fréquenté.";
-  }
-  
-  // Pourquoi / Cause
-  if(q.includes('pourquoi')||q.includes('cause')||q.includes('raison')||q.includes('bagarre')){
-    return "💥 Selon les témoins, une dispute a éclaté entre deux groupes de jeunes. L'un des participants aurait sorti un couteau.";
-  }
-  
-  // Blessé / Mort / Victime
-  if(q.includes('blesse')||q.includes('mort')||q.includes('victime')||q.includes('blessé')){
-    return "🏥 Deux personnes ont été blessées et emmenées à l'hôpital de Yopougon. L'état de santé n'est pas critique.";
-  }
-  
-  // Arrestation / Interpellation
-  if(q.includes('arrestation')||q.includes('interpellation')||q.includes('arrêté')||q.includes('pris')){
-    return "👮 Trois suspects ont été interpellés sur place. Ils sont actuellement au commissariat de Yopougon.";
-  }
-  
-  // Témoignage / Témoin
-  if(q.includes('temoignage')||q.includes('temoin')||q.includes('vu')||q.includes('entendu')){
-    return "👥 Plusieurs riverains ont confirmé avoir vu la scène. L'un d'eux a filmé avec son téléphone.";
-  }
-  
-  // Vidéo complète / Durée
-  if(q.includes('complete')||q.includes('duree')||q.includes('minute')||q.includes('seconde')){
-    return "⏱ La vidéo fait 47 secondes. Elle montre l'arrivée de la police et l'interpellation des suspects.";
-  }
-  
-  // Lien / Partager
-  if(q.includes('lien')||q.includes('partager')||q.includes('envoyer')||q.includes('whatsapp')){
-    return "📲 Clique sur le bouton vert en bas de page pour partager sur WhatsApp. Tu peux aussi copier le lien de la page.";
-  }
-  
-  // Merci / Bonjour
-  if(q.includes('merci')||q.includes('salut')||q.includes('bonjour')||q.includes('coucou')){
-    return "😊 De rien ! N'hésite pas si tu as d'autres questions sur l'affaire de Yopougon.";
-  }
-  
-  // Comment
-  if(q.includes('comment')||q.includes('façon')||q.includes('faire')){
-    return "👇 Pour voir la vidéo : 1) Clique sur le bouton rouge, 2) AUTORISER la pub, 3) La vidéo se lance. C'est simple !";
-  }
-  
-  // Vrai / Faux / Vrai
-  if(q.includes('vrai')||q.includes('faux')||q.includes('vraiment')||q.includes('réel')){
-    return "✅ C'est confirmé par plusieurs témoins sur place. La police a bien été appelée.";
-  }
-  
-  // Défaut
-  return "Merci pour ta question ! Pour voir la vidéo complète, clique sur AUTORISER quand la pub va s'afficher. C'est pour vérifier que tu es humain.";
-}
+        <div class="mini-dashboard">
+          <div>
+            <small>Visibilité</small>
+            <strong>+ Présence</strong>
+          </div>
+          <div>
+            <small>Contact</small>
+            <strong>WhatsApp</strong>
+          </div>
+        </div>
+      </div>
+    </section>
 
-/* ================= FONCTION ENVOYER MESSAGE ================= */
-function sendIA(){
-  const input = document.getElementById('ia-input');
-  const chat = document.getElementById('ia-chat');
-  if(!input.value.trim()) return;
-  
-  const userText = input.value.trim();
-  chat.innerHTML += `<div style="text-align:right"><div class="user-msg">${userText}</div></div><div style="clear:both"></div>`;
-  sauvegarderMessage('user', userText);
-  
-  input.value = '';
-  chat.scrollTop = chat.scrollHeight;
-  
-  setTimeout(() => {
-    const reponse = obtenirReponse(userText);
-    chat.innerHTML += `<div><div class="ia-msg">${reponse}</div></div>`;
-    sauvegarderMessage('ia', reponse);
-    chat.scrollTop = chat.scrollHeight;
-  }, 600);
-}
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Mes services</p>
+          <h2>Des solutions adaptées à votre activité</h2>
+          <p>
+            Je vous accompagne de la présentation de votre activité jusqu’à
+            la mise en ligne de votre outil.
+          </p>
+        </div>
 
-/* ================= PARTAGE WHATSAPP ================= */
-function partagerWhatsApp(){
-  const url = encodeURIComponent(window.location.href);
-  const titre = encodeURIComponent(document.title);
-  window.open('https://wa.me/?text=' + titre + '%20' + url, '_blank');
-}
+        <div class="cards">
+          <article class="service-card">
+            <span class="service-icon">◈</span>
+            <h3>Site vitrine</h3>
+            <p>
+              Présentez votre entreprise, vos services, vos horaires,
+              votre adresse et vos coordonnées.
+            </p>
+          </article>
 
-/* ================= INITIALISATION ================= */
-initVues();
-chargerChat();
-</script>
+          <article class="service-card">
+            <span class="service-icon">▣</span>
+            <h3>Catalogue en ligne</h3>
+            <p>
+              Affichez vos produits ou prestations avec des photos,
+              descriptions et boutons de contact.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-icon">⚙</span>
+            <h3>Application web</h3>
+            <p>
+              Automatisez votre activité avec un outil adapté à vos besoins
+              et à votre organisation.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-icon">✦</span>
+            <h3>Tableau de bord</h3>
+            <p>
+              Gérez vos clients, produits, demandes ou opérations depuis
+              une interface simple.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-icon">↗</span>
+            <h3>Mise en ligne</h3>
+            <p>
+              Je vous aide à publier votre projet et à le rendre accessible
+              depuis un téléphone ou un ordinateur.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-icon">◎</span>
+            <h3>Maintenance</h3>
+            <p>
+              Corrections, mises à jour de contenu et améliorations
+              après la livraison.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="realisations">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Réalisations</p>
+          <h2>Des projets conçus pour des besoins réels</h2>
+          <p>
+            Remplace ces exemples par tes vrais projets et ajoute leurs liens
+            de démonstration au fur et à mesure.
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-cover project-purple">GARAGE</div>
+            <div class="project-body">
+              <span>Annuaire local</span>
+              <h3>Repérage de garages</h3>
+              <p>
+                Recherche de services, fiches détaillées et localisation.
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-cover project-orange">GESTION</div>
+            <div class="project-body">
+              <span>Outil métier</span>
+              <h3>Application de gestion</h3>
+              <p>
+                Organisation des données, suivi des opérations et tableau
+                de bord.
+              </p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-cover project-blue">VITRINE</div>
+            <div class="project-body">
+              <span>Site professionnel</span>
+              <h3>Présence en ligne</h3>
+              <p>
+                Présentation d’une activité avec contact rapide par WhatsApp.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="methode">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Ma méthode</p>
+          <h2>Un processus simple et transparent</h2>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <span>01</span>
+            <div>
+              <h3>Échange</h3>
+              <p>
+                Nous discutons de votre activité, de vos objectifs et de
+                votre budget.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <span>02</span>
+            <div>
+              <h3>Conception</h3>
+              <p>
+                Je prépare une structure claire et une interface adaptée
+                aux téléphones.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <span>03</span>
+            <div>
+              <h3>Développement</h3>
+              <p>
+                Je construis le site et j’intègre les fonctionnalités
+                convenues.
+              </p>
+            </div>
+          </div>
+
+          <div class="step">
+            <span>04</span>
+            <div>
+              <h3>Livraison</h3>
+              <p>
+                Vous validez le résultat et je vous accompagne pour la mise
+                en ligne.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container contact-content">
+        <div>
+          <p class="eyebrow">Un projet en tête ?</p>
+          <h2>Parlons de votre activité.</h2>
+          <p>
+            Expliquez-moi votre idée. Je vous répondrai avec une proposition
+            adaptée à votre besoin.
+          </p>
+        </div>
+
+        <!-- Remplace 225XXXXXXXXXX par ton vrai numéro WhatsApp -->
+        <a
+          class="button button-whatsapp"
+          href="https://wa.me/225XXXXXXXXXX?text=Bonjour%20Jaur%C3%A8s%2C%20je%20souhaite%20parler%20d%27un%20projet%20web."
+          target="_blank"
+          rel="noopener">
+          Écrire sur WhatsApp
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© 2026 Jaurès Dago. Tous droits réservés.</p>
+      <p>Création de sites web et outils numériques à Abidjan.</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
 </body>
 </html>
+EOF
