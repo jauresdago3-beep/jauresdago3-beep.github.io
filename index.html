@@ -4,22 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>JDAWEB | Création de sites web à Abidjan</title>
+  <title>JDAWEB | Interfaces web à Abidjan</title>
 
   <meta
     name="description"
-    content="Jaurès Dago crée des sites web professionnels, applications web et outils numériques pour les entreprises et activités locales à Abidjan."
+    content="JDAWEB conçoit des sites web et outils numériques modernes pour les entreprises et activités locales à Abidjan."
   >
 
-  <meta name="theme-color" content="#111426">
+  <meta name="theme-color" content="#080a16">
 
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <div class="page-grid" aria-hidden="true"></div>
+
   <header class="site-header">
     <nav class="navbar container">
-      <a class="logo" href="index.html" aria-label="JDAWEB accueil">
-        JDA<span>WEB</span>
+      <a class="brand" href="#accueil" aria-label="JDAWEB accueil">
+        <span class="brand-mark">JD</span>
+        <span class="brand-name">JDA<span>WEB</span></span>
       </a>
 
       <button
@@ -29,341 +32,236 @@
         aria-label="Ouvrir le menu"
         aria-controls="navLinks"
         aria-expanded="false">
-        ☰
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
 
       <div class="nav-links" id="navLinks">
         <a href="#accueil">Accueil</a>
         <a href="#services">Services</a>
-        <a href="#realisations">Réalisations</a>
-        <a href="#methode">Méthode</a>
-        <a href="#contact">Contact</a>
+        <a href="#projets">Projets</a>
+        <a href="#processus">Processus</a>
+        <a class="nav-cta" href="#contact">Démarrer</a>
       </div>
     </nav>
   </header>
 
   <main>
     <section class="hero container" id="accueil">
-      <div class="hero-content">
-        <p class="eyebrow">Solutions numériques à Abidjan</p>
+      <div class="hero-copy">
+        <div class="status-line">
+          <span class="status-dot"></span>
+          <span>SYSTÈME DISPONIBLE · ABIDJAN, CI</span>
+        </div>
+
+        <p class="eyebrow">Solutions numériques sur mesure</p>
 
         <h1>
-          Votre activité mérite une présence web professionnelle.
+          Votre activité,
+          <span>connectée.</span>
         </h1>
 
         <p class="hero-text">
-          Je crée des sites vitrines, catalogues et applications web rapides,
-          modernes et adaptés aux téléphones.
+          Je conçois des sites web, interfaces et outils de gestion qui
+          transforment vos idées en expériences simples et utiles.
         </p>
 
         <div class="hero-actions">
           <a class="button button-primary" href="#contact">
-            Demander un devis
+            Lancer un projet
+            <span>↗</span>
           </a>
 
-          <a class="button button-secondary" href="#realisations">
-            Voir mes réalisations
+          <a class="button button-ghost" href="#projets">
+            Explorer les projets
           </a>
         </div>
 
-        <div class="trust-points" aria-label="Avantages">
-          <span>✓ Design responsive</span>
-          <span>✓ Contact WhatsApp</span>
-          <span>✓ Accompagnement direct</span>
+        <div class="hero-meta">
+          <div>
+            <strong>01</strong>
+            <span>Design adapté<br>aux mobiles</span>
+          </div>
+
+          <div>
+            <strong>02</strong>
+            <span>Développement<br>personnalisé</span>
+          </div>
+
+          <div>
+            <strong>03</strong>
+            <span>Contact direct<br>par WhatsApp</span>
+          </div>
         </div>
       </div>
 
-      <div class="hero-card">
-        <span class="card-label">JDAWEB</span>
+      <div class="interface-window" aria-label="Aperçu d'une interface JDAWEB">
+        <div class="window-top">
+          <div class="window-dots">
+            <i></i>
+            <i></i>
+            <i></i>
+          </div>
 
-        <h2>
-          Une solution claire pour développer votre activité.
-        </h2>
+          <span class="window-title">jdaweb://dashboard</span>
+
+          <span class="window-signal">● LIVE</span>
+        </div>
+
+        <div class="window-body">
+          <aside class="dashboard-menu">
+            <span class="menu-logo">JD</span>
+            <span class="menu-item active">⌂</span>
+            <span class="menu-item">◈</span>
+            <span class="menu-item">▣</span>
+            <span class="menu-item">⚙</span>
+          </aside>
+
+          <div class="dashboard-content">
+            <div class="dashboard-heading">
+              <div>
+                <small>TABLEAU DE BORD</small>
+                <h2>Bonjour, Jaurès.</h2>
+              </div>
+
+              <span class="avatar">JD</span>
+            </div>
+
+            <div class="metric-grid">
+              <div class="metric-card">
+                <span>VISIBILITÉ</span>
+                <strong>+82%</strong>
+                <small>présence en ligne</small>
+              </div>
+
+              <div class="metric-card accent">
+                <span>PROJETS</span>
+                <strong>12</strong>
+                <small>en développement</small>
+              </div>
+            </div>
+
+            <div class="chart-card">
+              <div class="chart-heading">
+                <span>ACTIVITÉ DU PROJET</span>
+                <span class="chart-period">7 jours</span>
+              </div>
+
+              <div class="chart">
+                <div class="chart-line"></div>
+                <span class="chart-point point-1"></span>
+                <span class="chart-point point-2"></span>
+                <span class="chart-point point-3"></span>
+                <span class="chart-point point-4"></span>
+                <span class="chart-point point-5"></span>
+                <span class="chart-point point-6"></span>
+              </div>
+
+              <div class="chart-labels">
+                <span>LUN</span>
+                <span>MAR</span>
+                <span>MER</span>
+                <span>JEU</span>
+                <span>VEN</span>
+                <span>SAM</span>
+              </div>
+            </div>
+
+            <div class="dashboard-footer">
+              <span class="footer-pulse"></span>
+              Interface prête pour votre activité
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tech-strip">
+      <div class="container tech-content">
+        <span>JE TRANSFORME VOS IDÉES AVEC</span>
+        <div class="tech-list">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JAVASCRIPT</span>
+          <span>FLASK</span>
+          <span>FIREBASE</span>
+          <span>FLUTTER</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="services">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">01 / Services</p>
+          <h2>Des outils qui travaillent pour vous.</h2>
+        </div>
 
         <p>
-          Présentez vos services, recevez des demandes et donnez confiance
-          à vos clients grâce à une présence en ligne professionnelle.
+          Chaque projet est pensé pour être compréhensible, rapide à utiliser
+          et adapté à la réalité de votre activité.
         </p>
+      </div>
 
-        <div class="mini-dashboard">
+      <div class="service-grid">
+        <article class="service-card large">
+          <div class="card-number">01</div>
+          <span class="card-icon">◈</span>
+          <h3>Site vitrine</h3>
+          <p>
+            Présentez votre activité avec une interface professionnelle,
+            des services clairs et un contact immédiat.
+          </p>
+          <a href="#contact">Démarrer un site <span>↗</span></a>
+        </article>
+
+        <article class="service-card">
+          <div class="card-number">02</div>
+          <span class="card-icon cyan">▣</span>
+          <h3>Catalogue</h3>
+          <p>
+            Affichez vos produits et facilitez les demandes de vos clients.
+          </p>
+          <a href="#contact">En savoir plus <span>↗</span></a>
+        </article>
+
+        <article class="service-card">
+          <div class="card-number">03</div>
+          <span class="card-icon orange">⚙</span>
+          <h3>Outil métier</h3>
+          <p>
+            Automatisez vos opérations grâce à une application adaptée.
+          </p>
+          <a href="#contact">Parler du projet <span>↗</span></a>
+        </article>
+
+        <article class="service-card wide">
+          <div class="card-number">04</div>
+          <span class="card-icon purple">✦</span>
+          <h3>Tableau de bord</h3>
+          <p>
+            Centralisez vos données, clients, produits et demandes dans une
+            interface simple à piloter depuis votre téléphone ou ordinateur.
+          </p>
+          <a href="#contact">Construire mon interface <span>↗</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section projects-section" id="projets">
+      <div class="container">
+        <div class="section-heading">
           <div>
-            <small>Visibilité</small>
-            <strong>En ligne</strong>
+            <p class="eyebrow">02 / Projets</p>
+            <h2>Des expériences conçues pour le réel.</h2>
           </div>
 
-          <div>
-            <small>Contact</small>
-            <strong>WhatsApp</strong>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="services">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Mes services</p>
-
-          <h2>
-            Des outils numériques adaptés à votre activité
-          </h2>
-
           <p>
-            De la simple présentation à l’application métier, je construis
-            une solution adaptée à vos objectifs.
+            Des prototypes et projets personnels qui montrent ma manière
+            de réfléchir à une solution numérique.
           </p>
         </div>
 
-        <div class="cards">
-          <article class="service-card">
-            <span class="service-icon" aria-hidden="true">◈</span>
-            <h3>Site vitrine</h3>
-            <p>
-              Présentez votre activité, vos services, vos horaires,
-              votre adresse et vos coordonnées.
-            </p>
-          </article>
-
-          <article class="service-card">
-            <span class="service-icon" aria-hidden="true">▣</span>
-            <h3>Catalogue en ligne</h3>
-            <p>
-              Affichez vos produits ou prestations avec photos, descriptions
-              et boutons de contact.
-            </p>
-          </article>
-
-          <article class="service-card">
-            <span class="service-icon" aria-hidden="true">⚙</span>
-            <h3>Application web</h3>
-            <p>
-              Automatisez certaines tâches avec un outil conçu pour votre
-              organisation.
-            </p>
-          </article>
-
-          <article class="service-card">
-            <span class="service-icon" aria-hidden="true">✦</span>
-            <h3>Tableau de bord</h3>
-            <p>
-              Gérez vos clients, produits, demandes ou opérations depuis
-              une interface simple.
-            </p>
-          </article>
-
-          <article class="service-card">
-            <span class="service-icon" aria-hidden="true">↗</span>
-            <h3>Mise en ligne</h3>
-            <p>
-              Je publie votre projet et vous accompagne pour le rendre
-              accessible sur téléphone et ordinateur.
-            </p>
-          </article>
-
-          <article class="service-card">
-            <span class="service-icon" aria-hidden="true">◎</span>
-            <h3>Maintenance</h3>
-            <p>
-              Corrections, mises à jour, améliorations et accompagnement
-              après la livraison.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-dark" id="realisations">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Réalisations</p>
-
-          <h2>
-            Des projets conçus pour des besoins réels
-          </h2>
-
-          <p>
-            Voici des exemples de projets et de prototypes réalisés pour
-            explorer des besoins locaux et professionnels.
-          </p>
-        </div>
-
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="project-cover project-purple">
-              GARAGE
-            </div>
-
-            <div class="project-body">
-              <span>Annuaire local</span>
-
-              <h3>
-                Repérage de garages
-              </h3>
-
-              <p>
-                Recherche de services, fiches détaillées et localisation.
-              </p>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-cover project-orange">
-              GESTION
-            </div>
-
-            <div class="project-body">
-              <span>Outil métier</span>
-
-              <h3>
-                Application de gestion
-              </h3>
-
-              <p>
-                Organisation des données, suivi des opérations et tableau
-                de bord.
-              </p>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-cover project-blue">
-              VITRINE
-            </div>
-
-            <div class="project-body">
-              <span>Site professionnel</span>
-
-              <h3>
-                Présence en ligne
-              </h3>
-
-              <p>
-                Présentation d’une activité avec contact rapide par WhatsApp.
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="methode">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Ma méthode</p>
-
-          <h2>
-            Un processus simple et transparent
-          </h2>
-
-          <p>
-            Chaque projet commence par une discussion claire sur vos besoins.
-          </p>
-        </div>
-
-        <div class="steps">
-          <article class="step">
-            <span>01</span>
-
-            <div>
-              <h3>Échange</h3>
-              <p>
-                Nous discutons de votre activité, de vos objectifs et de
-                votre budget.
-              </p>
-            </div>
-          </article>
-
-          <article class="step">
-            <span>02</span>
-
-            <div>
-              <h3>Conception</h3>
-              <p>
-                Je prépare une structure claire et une interface adaptée
-                aux téléphones.
-              </p>
-            </div>
-          </article>
-
-          <article class="step">
-            <span>03</span>
-
-            <div>
-              <h3>Développement</h3>
-              <p>
-                Je construis le site et j’intègre les fonctionnalités
-                convenues.
-              </p>
-            </div>
-          </article>
-
-          <article class="step">
-            <span>04</span>
-
-            <div>
-              <h3>Livraison</h3>
-              <p>
-                Vous validez le résultat et je vous accompagne pour la mise
-                en ligne.
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact-section" id="contact">
-      <div class="container contact-content">
-        <div>
-          <p class="eyebrow">Un projet en tête ?</p>
-
-          <h2>
-            Parlons de votre activité.
-          </h2>
-
-          <p>
-            Expliquez-moi votre idée et recevez une proposition adaptée
-            à votre besoin.
-          </p>
-        </div>
-
-        <div class="contact-actions">
-          <a
-            class="button button-whatsapp"
-            href="https://wa.me/2250575570479?text=Bonjour%20Jaur%C3%A8s%2C%20je%20souhaite%20parler%20d%27un%20projet%20web."
-            target="_blank"
-            rel="noopener">
-            Écrire sur WhatsApp
-          </a>
-
-          <a
-            class="email-link"
-            href="mailto:jauresdago3@gmail.com">
-            jauresdago3@gmail.com
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-content">
-      <p>
-        © 2026 Jaurès Dago. Tous droits réservés.
-      </p>
-
-      <nav class="footer-links" aria-label="Liens légaux">
-        <a href="mentions-legales.html">
-          Mentions légales
-        </a>
-
-        <a href="politique-confidentialite.html">
-          Politique de confidentialité
-        </a>
-      </nav>
-    </div>
-  </footer>
-
-  <script src="js/app.js"></script>
-</body>
-</html>
+        <div class="project-list">
+          <article c
