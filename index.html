@@ -4,129 +4,1394 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Nova Web CI | Création de sites web à Abidjan</title>
+  <title>JDAWEB | Création de sites web à Abidjan</title>
 
   <meta
     name="description"
-    content="Nova Web CI crée des sites web professionnels, rapides et adaptés aux activités locales à Abidjan."
+    content="JDAWEB crée des sites web, applications web et outils numériques à Abidjan."
   >
 
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="theme-color" content="#080b18">
+
+  <style>
+    :root {
+      --bg: #080b18;
+      --surface: #11172e;
+      --surface-light: #19213f;
+      --primary: #8b70ff;
+      --primary-dark: #674bdd;
+      --cyan: #5de4ff;
+      --green: #4ce49d;
+      --orange: #ffad73;
+      --text: #f5f7ff;
+      --muted: #a3abc8;
+      --muted-light: #d1d6e9;
+      --border: rgba(139, 112, 255, 0.28);
+      --border-soft: rgba(255, 255, 255, 0.11);
+      --shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background:
+        radial-gradient(
+          circle at 10% 0%,
+          rgba(118, 82, 255, 0.2),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 100% 20%,
+          rgba(93, 228, 255, 0.1),
+          transparent 25%
+        ),
+        var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      background-image:
+        linear-gradient(
+          rgba(139, 112, 255, 0.035) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(139, 112, 255, 0.035) 1px,
+          transparent 1px
+        );
+      background-size: 42px 42px;
+      content: "";
+      inset: 0;
+      pointer-events: none;
+      position: fixed;
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 4px;
+    }
+
+    .container {
+      margin: 0 auto;
+      max-width: 1160px;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .site-header {
+      background: rgba(8, 11, 24, 0.88);
+      border-bottom: 1px solid var(--border-soft);
+      backdrop-filter: blur(18px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      min-height: 74px;
+    }
+
+    .brand {
+      align-items: center;
+      display: flex;
+      font-size: 17px;
+      font-weight: 900;
+      gap: 10px;
+      letter-spacing: 1.5px;
+    }
+
+    .brand-mark {
+      align-items: center;
+      background: linear-gradient(135deg, var(--primary), var(--cyan));
+      border-radius: 9px;
+      color: var(--bg);
+      display: flex;
+      font-size: 11px;
+      height: 34px;
+      justify-content: center;
+      width: 34px;
+    }
+
+    .brand-accent,
+    .footer-brand span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      align-items: center;
+      display: flex;
+      gap: 27px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--cyan);
+    }
+
+    .nav-button {
+      background: var(--primary);
+      border-radius: 8px;
+      color: var(--text) !important;
+      padding: 10px 16px;
+    }
+
+    .menu-toggle {
+      background: transparent;
+      border: 0;
+      color: var(--text);
+      cursor: pointer;
+      display: none;
+      font-size: 25px;
+      padding: 8px;
+    }
+
+    .hero {
+      align-items: center;
+      display: grid;
+      gap: 68px;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, 0.8fr);
+      min-height: 700px;
+      padding-bottom: 95px;
+      padding-top: 95px;
+    }
+
+    .availability {
+      align-items: center;
+      color: var(--green);
+      display: flex;
+      font-size: 10px;
+      font-weight: 800;
+      gap: 9px;
+      letter-spacing: 1px;
+      margin-bottom: 27px;
+    }
+
+    .availability span {
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 14px var(--green);
+      height: 7px;
+      width: 7px;
+    }
+
+    .eyebrow {
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      color: var(--text);
+      font-size: clamp(42px, 6vw, 74px);
+      letter-spacing: -3px;
+      line-height: 1;
+      max-width: 720px;
+    }
+
+    .hero-description {
+      color: var(--muted);
+      font-size: 17px;
+      margin: 28px 0;
+      max-width: 570px;
+    }
+
+    .hero-buttons,
+    .hero-points,
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .button {
+      align-items: center;
+      border: 1px solid transparent;
+      border-radius: 9px;
+      display: inline-flex;
+      font-size: 12px;
+      font-weight: 800;
+      gap: 14px;
+      justify-content: center;
+      min-height: 48px;
+      padding: 13px 19px;
+      transition: 0.25s ease;
+    }
+
+    .button-primary {
+      background: var(--primary);
+      color: var(--text);
+    }
+
+    .button-primary:hover {
+      background: var(--primary-dark);
+      box-shadow: 0 0 25px rgba(139, 112, 255, 0.3);
+      transform: translateY(-3px);
+    }
+
+    .button-outline {
+      border-color: var(--border);
+      color: var(--muted-light);
+    }
+
+    .button-outline:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
+
+    .hero-points {
+      border-top: 1px solid var(--border-soft);
+      color: var(--muted);
+      font-size: 10px;
+      gap: 18px;
+      margin-top: 54px;
+      padding-top: 17px;
+    }
+
+    .visual-card {
+      background:
+        linear-gradient(rgba(139, 112, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139, 112, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(145deg, #171d3d, #0b0f22);
+      background-size: 27px 27px, 27px 27px, auto;
+      border: 1px solid rgba(139, 112, 255, 0.42);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      min-height: 465px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .visual-header,
+    .visual-footer {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .visual-header {
+      border-bottom: 1px solid var(--border-soft);
+      color: var(--muted);
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      padding: 17px;
+    }
+
+    .visual-header strong {
+      color: var(--green);
+      font-size: 8px;
+    }
+
+    .visual-dots {
+      display: flex;
+      gap: 5px;
+    }
+
+    .visual-dots span {
+      background: #70799b;
+      border-radius: 50%;
+      height: 6px;
+      width: 6px;
+    }
+
+    .visual-dots span:first-child {
+      background: var(--orange);
+    }
+
+    .visual-dots span:nth-child(2) {
+      background: #f6d36a;
+    }
+
+    .visual-dots span:last-child {
+      background: var(--green);
+    }
+
+    .visual-body {
+      padding: 55px 28px 30px;
+    }
+
+    .visual-body > p {
+      color: var(--primary);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .visual-body h2 {
+      color: var(--text);
+      font-size: 38px;
+      letter-spacing: -1.5px;
+      line-height: 0.98;
+      margin-top: 14px;
+    }
+
+    .visual-line {
+      background: linear-gradient(90deg, var(--cyan), transparent);
+      height: 2px;
+      margin: 35px 0 24px;
+    }
+
+    .visual-stats {
+      display: grid;
+      gap: 9px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .visual-stats div {
+      background: rgba(255, 255, 255, 0.055);
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      padding: 12px 9px;
+    }
+
+    .visual-stats small {
+      color: var(--muted);
+      display: block;
+      font-size: 7px;
+      letter-spacing: 1px;
+    }
+
+    .visual-stats strong {
+      color: var(--cyan);
+      display: block;
+      font-size: 11px;
+      margin-top: 5px;
+    }
+
+    .visual-footer {
+      border-top: 1px solid var(--border-soft);
+      bottom: 0;
+      color: var(--muted);
+      font-size: 8px;
+      font-weight: 800;
+      left: 0;
+      letter-spacing: 1px;
+      padding: 16px 17px;
+      position: absolute;
+      right: 0;
+    }
+
+    .statement {
+      background: rgba(17, 22, 45, 0.66);
+      border-bottom: 1px solid var(--border-soft);
+      border-top: 1px solid var(--border-soft);
+    }
+
+    .statement-content {
+      align-items: center;
+      display: grid;
+      gap: 35px;
+      grid-template-columns: 120px 1fr;
+      min-height: 130px;
+    }
+
+    .section-index {
+      color: var(--primary);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+    }
+
+    .statement p {
+      color: var(--muted-light);
+      font-size: 20px;
+      max-width: 780px;
+    }
+
+    .section {
+      padding-bottom: 115px;
+      padding-top: 115px;
+    }
+
+    .section-top {
+      align-items: flex-end;
+      display: flex;
+      gap: 50px;
+      justify-content: space-between;
+      margin-bottom: 48px;
+    }
+
+    .section-top h2,
+    .process-intro h2,
+    .contact-box h2 {
+      color: var(--text);
+      font-size: clamp(35px, 5vw, 56px);
+      letter-spacing: -2px;
+      line-height: 0.98;
+    }
+
+    .section-top h2 span,
+    .process-intro h2 span,
+    .contact-box h2 span {
+      color: var(--primary);
+    }
+
+    .section-description {
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 320px;
+    }
+
+    .service-grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .service-card {
+      background: linear-gradient(
+        145deg,
+        rgba(25, 31, 66, 0.9),
+        rgba(12, 16, 35, 0.9)
+      );
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      min-height: 330px;
+      padding: 25px;
+      position: relative;
+      transition: 0.25s ease;
+    }
+
+    .service-card:hover {
+      border-color: rgba(93, 228, 255, 0.55);
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
+      transform: translateY(-5px);
+    }
+
+    .card-top {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .card-number {
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .card-icon {
+      color: var(--cyan);
+      font-size: 28px;
+    }
+
+    .service-card h3 {
+      color: var(--text);
+      font-size: 20px;
+      margin: 48px 0 12px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .service-card > a {
+      bottom: 25px;
+      color: var(--muted-light);
+      font-size: 11px;
+      font-weight: 800;
+      left: 25px;
+      position: absolute;
+    }
+
+    .service-card > a span {
+      color: var(--cyan);
+      font-size: 17px;
+      margin-left: 7px;
+    }
+
+    .service-card > a:hover {
+      color: var(--cyan);
+    }
+
+    .projects-section {
+      background: rgba(17, 22, 45, 0.45);
+      border-bottom: 1px solid var(--border-soft);
+      border-top: 1px solid var(--border-soft);
+    }
+
+    .project-grid {
+      display: grid;
+      gap: 15px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    .project-art {
+      display: flex;
+      flex-direction: column;
+      height: 270px;
+      justify-content: space-between;
+      overflow: hidden;
+      padding: 20px;
+      position: relative;
+    }
+
+    .project-art::before {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.13) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.13) 1px, transparent 1px);
+      background-size: 23px 23px;
+      content: "";
+      inset: 0;
+      opacity: 0.35;
+      position: absolute;
+    }
+
+    .art-purple {
+      background: linear-gradient(135deg, #4e38b2, #aa82ff);
+    }
+
+    .art-orange {
+      background: linear-gradient(135deg, #a54e2d, #ffb874);
+    }
+
+    .art-cyan {
+      background: linear-gradient(135deg, #126b8f, #6ce2e8);
+    }
+
+    .art-code,
+    .art-symbol,
+    .project-art strong {
+      position: relative;
+      z-index: 1;
+    }
+
+    .art-code {
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .art-symbol {
+      font-size: 78px;
+      opacity: 0.88;
+    }
+
+    .project-art strong {
+      font-size: 18px;
+      letter-spacing: 1px;
+      line-height: 0.95;
+    }
+
+    .project-content {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+    .project-content small {
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .project-content h3 {
+      color: var(--text);
+      font-size: 15px;
+      margin-top: 5px;
+    }
+
+    .project-arrow {
+      color: var(--cyan);
+      font-size: 22px;
+    }
+
+    .process-section {
+      background: rgba(17, 22, 45, 0.45);
+    }
+
+    .process-layout {
+      display: grid;
+      gap: 100px;
+      grid-template-columns: 0.8fr 1.2fr;
+    }
+
+    .process-intro > p:last-child {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 25px;
+      max-width: 300px;
+    }
+
+    .process-list {
+      border-top: 1px solid var(--border-soft);
+    }
+
+    .process-item {
+      align-items: flex-start;
+      border-bottom: 1px solid var(--border-soft);
+      display: flex;
+      gap: 30px;
+      padding: 25px 0;
+    }
+
+    .process-item > span {
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .process-item h3 {
+      color: var(--text);
+      font-size: 19px;
+    }
+
+    .process-item p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 5px;
+    }
+
+    .contact-section {
+      padding-bottom: 100px;
+      padding-top: 100px;
+    }
+
+    .contact-box {
+      align-items: center;
+      background:
+        linear-gradient(135deg, rgba(137, 112, 255, 0.2), transparent 62%),
+        var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      display: flex;
+      gap: 40px;
+      justify-content: space-between;
+      overflow: hidden;
+      padding: 60px;
+      position: relative;
+    }
+
+    .contact-box::after {
+      border: 1px solid rgba(93, 228, 255, 0.13);
+      border-radius: 50%;
+      content: "";
+      height: 350px;
+      position: absolute;
+      right: -110px;
+      top: -160px;
+      width: 350px;
+    }
+
+    .contact-label {
+      color: var(--cyan);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+
+    .contact-box h2 {
+      margin: 17px 0;
+      max-width: 650px;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .contact-actions {
+      align-items: flex-start;
+      flex-direction: column;
+      position: relative;
+      z-index: 1;
+    }
+
+    .button-whatsapp {
+      background: var(--green);
+      color: var(--bg);
+    }
+
+    .button-whatsapp:hover {
+      box-shadow: 0 0 25px rgba(82, 230, 159, 0.28);
+      filter: brightness(0.94);
+      transform: translateY(-3px);
+    }
+
+    .email-link {
+      color: var(--muted-light);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .email-link:hover {
+      color: var(--cyan);
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--border-soft);
+      padding: 28px 0;
+    }
+
+    .footer-content {
+      align-items: center;
+      display: flex;
+      gap: 30px;
+      justify-content: space-between;
+    }
+
+    .footer-brand {
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .footer-content p,
+    .footer-links a {
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links a:hover {
+      color: var(--cyan);
+    }
+
+    @media (max-width: 950px) {
+      .hero {
+        gap: 45px;
+        grid-template-columns: 1fr;
+      }
+
+      .visual-card {
+        max-width: 620px;
+        width: 100%;
+      }
+
+      .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-layout {
+        gap: 55px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .navbar {
+        min-height: 68px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        background: rgba(8, 11, 24, 0.98);
+        border-bottom: 1px solid var(--border-soft);
+        display: none;
+        flex-direction: column;
+        gap: 22px;
+        left: 0;
+        padding: 25px 22px;
+        position: absolute;
+        right: 0;
+        top: 68px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-bottom: 75px;
+        padding-top: 75px;
+      }
+
+      .hero h1 {
+        font-size: clamp(41px, 12vw, 62px);
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .visual-card {
+        min-height: 400px;
+      }
+
+      .visual-body {
+        padding: 42px 20px 25px;
+      }
+
+      .visual-body h2 {
+        font-size: 32px;
+      }
+
+      .statement-content {
+        gap: 16px;
+        grid-template-columns: 65px 1fr;
+      }
+
+      .statement p {
+        font-size: 15px;
+      }
+
+      .section {
+        padding-bottom: 80px;
+        padding-top: 80px;
+      }
+
+      .section-top {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .section-top h2,
+      .process-intro h2,
+      .contact-box h2 {
+        font-size: 39px;
+      }
+
+      .service-grid,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        min-height: 290px;
+      }
+
+      .process-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-section {
+        padding-bottom: 70px;
+        padding-top: 70px;
+      }
+
+      .contact-box {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 35px 25px;
+      }
+
+      .footer-content {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
     <nav class="navbar container">
-      <a class="logo" href="index.html">NOVA<span>WEB</span></a>
+      <a class="brand" href="#accueil" aria-label="JDAWEB accueil">
+        <span class="brand-mark">JD</span>
+        <span>JDA<span class="brand-accent">WEB</span></span>
+      </a>
 
       <button
         class="menu-toggle"
         id="menuToggle"
         type="button"
         aria-label="Ouvrir le menu"
+        aria-controls="navLinks"
         aria-expanded="false">
         ☰
       </button>
 
       <div class="nav-links" id="navLinks">
-        <a href="index.html">Accueil</a>
-        <a href="services.html">Services</a>
-        <a href="portfolio.html">Réalisations</a>
-        <a href="contact.html">Contact</a>
+        <a href="#services">Services</a>
+        <a href="#projets">Projets</a>
+        <a href="#methode">Méthode</a>
+        <a href="#contact" class="nav-button">Contact</a>
       </div>
     </nav>
   </header>
 
   <main>
-    <section class="hero container">
+    <section class="hero container" id="accueil">
       <div class="hero-content">
-        <p class="eyebrow">Solutions numériques à Abidjan</p>
+        <div class="availability">
+          <span></span>
+          Disponible pour de nouveaux projets
+        </div>
+
+        <p class="eyebrow">Création web à Abidjan</p>
 
         <h1>
-          Donnez une présence professionnelle à votre activité.
+          Une présence en ligne claire pour une activité qui avance.
         </h1>
 
-        <p class="hero-text">
-          Je crée des sites web rapides, adaptés aux téléphones et conçus
-          pour aider les entreprises à être trouvées et contactées.
+        <p class="hero-description">
+          Je crée des sites vitrines, catalogues et applications web modernes,
+          rapides et adaptés aux téléphones.
         </p>
 
-        <div class="hero-actions">
-          <a class="button button-primary" href="contact.html">
-            Demander un devis
+        <div class="hero-buttons">
+          <a class="button button-primary" href="#contact">
+            Démarrer un projet
           </a>
 
-          <a class="button button-secondary" href="portfolio.html">
-            Voir mes réalisations
+          <a class="button button-outline" href="#projets">
+            Voir les projets
           </a>
+        </div>
+
+        <div class="hero-points">
+          <span>✓ Design mobile</span>
+          <span>✓ Contact WhatsApp</span>
+          <span>✓ Suivi direct</span>
         </div>
       </div>
 
-      <div class="hero-card">
-        <span class="card-label">Votre activité en ligne</span>
-        <h2>Simple, moderne et accessible.</h2>
+      <div class="visual-card">
+        <div class="visual-header">
+          <div class="visual-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <span>JDAWEB / PROJECT</span>
+          <strong>● ACTIF</strong>
+        </div>
+
+        <div class="visual-body">
+          <p>VOTRE ACTIVITÉ</p>
+
+          <h2>
+            Visible.<br>
+            Accessible.<br>
+            Professionnelle.
+          </h2>
+
+          <div class="visual-line"></div>
+
+          <div class="visual-stats">
+            <div>
+              <small>FORMAT</small>
+              <strong>WEB</strong>
+            </div>
+
+            <div>
+              <small>ZONE</small>
+              <strong>ABIDJAN</strong>
+            </div>
+
+            <div>
+              <small>CONTACT</small>
+              <strong>DIRECT</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="visual-footer">
+          <span>DESIGN · CODE · IMPACT</span>
+          <span>2026</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="statement">
+      <div class="container statement-content">
+        <span class="section-index">01 / VISION</span>
+
         <p>
-          Site vitrine, catalogue, formulaire de contact et bouton WhatsApp.
+          Votre site doit expliquer votre activité, inspirer confiance et
+          faciliter le contact avec vos futurs clients.
         </p>
       </div>
     </section>
 
-    <section class="section container">
-      <div class="section-heading">
-        <p class="eyebrow">Ce que je propose</p>
-        <h2>Des solutions adaptées à votre activité</h2>
+    <section class="section container" id="services">
+      <div class="section-top">
+        <div>
+          <p class="eyebrow">Services</p>
+
+          <h2>
+            Ce que je peux construire<br>
+            <span>pour vous.</span>
+          </h2>
+        </div>
+
+        <p class="section-description">
+          Des solutions numériques adaptées à votre activité, votre public
+          et vos objectifs.
+        </p>
       </div>
 
-      <div class="cards">
+      <div class="service-grid">
         <article class="service-card">
-          <span class="service-icon">◈</span>
+          <div class="card-top">
+            <span class="card-number">01</span>
+            <span class="card-icon">◈</span>
+          </div>
+
           <h3>Site vitrine</h3>
+
           <p>
-            Présentez votre entreprise, vos services, vos horaires et vos
-            coordonnées.
+            Présentez votre entreprise, vos services, vos horaires,
+            votre adresse et vos coordonnées.
           </p>
+
+          <a href="#contact">
+            En savoir plus <span>↗</span>
+          </a>
         </article>
 
         <article class="service-card">
-          <span class="service-icon">▣</span>
+          <div class="card-top">
+            <span class="card-number">02</span>
+            <span class="card-icon">▣</span>
+          </div>
+
           <h3>Catalogue en ligne</h3>
+
           <p>
-            Affichez vos produits ou prestations avec des photos et des
-            informations claires.
+            Montrez vos produits ou prestations avec des descriptions claires
+            et un contact rapide.
           </p>
+
+          <a href="#contact">
+            En savoir plus <span>↗</span>
+          </a>
         </article>
 
         <article class="service-card">
-          <span class="service-icon">⚙</span>
+          <div class="card-top">
+            <span class="card-number">03</span>
+            <span class="card-icon">⌘</span>
+          </div>
+
           <h3>Application web</h3>
+
           <p>
-            Automatisez une partie de votre activité grâce à un outil adapté
-            à vos besoins.
+            Automatisez une tâche ou organisez votre activité avec un outil
+            accessible depuis un navigateur.
           </p>
+
+          <a href="#contact">
+            En savoir plus <span>↗</span>
+          </a>
+        </article>
+
+        <article class="service-card">
+          <div class="card-top">
+            <span class="card-number">04</span>
+            <span class="card-icon">◎</span>
+          </div>
+
+          <h3>Tableau de bord</h3>
+
+          <p>
+            Suivez vos clients, demandes et opérations depuis une interface
+            simple et organisée.
+          </p>
+
+          <a href="#contact">
+            En savoir plus <span>↗</span>
+          </a>
         </article>
       </div>
     </section>
 
-    <section class="cta-section">
-      <div class="container cta-content">
-        <div>
-          <p class="eyebrow">Un projet en tête ?</p>
-          <h2>Parlons de votre activité.</h2>
+    <section class="section projects-section" id="projets">
+      <div class="container">
+        <div class="section-top">
+          <div>
+            <p class="eyebrow">Projets</p>
+
+            <h2>
+              Des idées transformées<br>
+              <span>en expériences utiles.</span>
+            </h2>
+          </div>
+
+          <p class="section-description">
+            Prototypes et projets personnels conçus autour de besoins concrets.
+          </p>
         </div>
 
-        <a class="button button-light" href="contact.html">
-          Me contacter
-        </a>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-art art-purple">
+              <span class="art-code">LOCAL / 001</span>
+              <span class="art-symbol">⌖</span>
+              <strong>GARAGE<br>LOCATOR</strong>
+            </div>
+
+            <div class="project-content">
+              <div>
+                <small>Géolocalisation · Annuaire</small>
+                <h3>Repérage de garages</h3>
+              </div>
+
+              <span class="project-arrow">↗</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-art art-orange">
+              <span class="art-code">TOOLS / 002</span>
+              <span class="art-symbol">▦</span>
+              <strong>GESTION<br>PRO</strong>
+            </div>
+
+            <div class="project-content">
+              <div>
+                <small>Organisation · Dashboard</small>
+                <h3>Application de gestion</h3>
+              </div>
+
+              <span class="project-arrow">↗</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-art art-cyan">
+              <span class="art-code">WEB / 003</span>
+              <span class="art-symbol">◌</span>
+              <strong>VITRINE<br>ACTIVE</strong>
+            </div>
+
+            <div class="project-content">
+              <div>
+                <small>Présentation · Contact</small>
+                <h3>Présence en ligne</h3>
+              </div>
+
+              <span class="project-arrow">↗</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process-section" id="methode">
+      <div class="container process-layout">
+        <div class="process-intro">
+          <p class="eyebrow">Méthode</p>
+
+          <h2>
+            Du besoin initial<br>
+            <span>à la mise en ligne.</span>
+          </h2>
+
+          <p>
+            Un processus simple, transparent et adapté à votre rythme.
+          </p>
+        </div>
+
+        <div class="process-list">
+          <article class="process-item">
+            <span>01</span>
+
+            <div>
+              <h3>Échange</h3>
+              <p>
+                Nous discutons de votre activité, de vos objectifs et de
+                votre budget.
+              </p>
+            </div>
+          </article>
+
+          <article class="process-item">
+            <span>02</span>
+
+            <div>
+              <h3>Conception</h3>
+              <p>
+                Je prépare la structure et l’interface de votre projet.
+              </p>
+            </div>
+          </article>
+
+          <article class="process-item">
+            <span>03</span>
+
+            <div>
+              <h3>Développement</h3>
+              <p>
+                Je construis et teste les fonctionnalités convenues.
+              </p>
+            </div>
+          </article>
+
+          <article class="process-item">
+            <span>04</span>
+
+            <div>
+              <h3>Livraison</h3>
+              <p>
+                Vous validez le résultat et je vous accompagne pour la mise
+                en ligne.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container contact-box">
+        <div>
+          <span class="contact-label">DÉMARRER UN PROJET</span>
+
+          <h2>
+            Construisons quelque chose
+            <span>d’utile ensemble.</span>
+          </h2>
+
+          <p>
+            Décrivez votre idée en quelques mots. Je vous répondrai
+            directement.
+          </p>
+        </div>
+
+        <div class="contact-actions">
+          <a
+            class="button button-whatsapp"
+            href="https://wa.me/2250575570479?text=Bonjour%20Jaur%C3%A8s%2C%20je%20souhaite%20parler%20d%27un%20projet%20web."
+            target="_blank"
+            rel="noopener noreferrer">
+            Écrire sur WhatsApp <span>↗</span>
+          </a>
+
+          <a
+            class="email-link"
+            href="mailto:jauresdago3@gmail.com">
+            jauresdago3@gmail.com
+          </a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-content">
-      <p>© 2026 Nova Web CI. Tous droits réservés.</p>
-      <p>Création de sites web à Abidjan.</p>
+      <a class="footer-brand" href="#accueil">
+        JD<span>AWEB</span>
+      </a>
+
+      <p>
+        Création numérique · Abidjan, Côte d’Ivoire
+      </p>
+
+      <nav class="footer-links" aria-label="Liens légaux">
+        <a href="mentions-legales.html">
+          Mentions légales
+        </a>
+
+        <a href="politique-confidentialite.html">
+          Confidentialité
+        </a>
+      </nav>
     </div>
   </footer>
 
-  <script src="js/app.js"></script>
+  <script>
+    "use strict";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuToggle = document.querySelector("#menuToggle");
+      const navLinks = document.querySelector("#navLinks");
+
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", () => {
+          const isOpen = navLinks.classList.toggle("open");
+
+          menuToggle.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+          );
+
+          menuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Fermer le menu" : "Ouvrir le menu"
+          );
+        });
+      }
+
+      document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener("click", (event) => {
+          const targetId = link.getAttribute("href");
+
+          if (!targetId || targetId === "#") {
+            return;
+          }
+
+          const target = document.querySelector(targetId);
+
+          if (!target) {
+            return;
+          }
+
+          event.preventDefault();
+
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+          navLinks?.classList.remove("open");
+          menuToggle?.setAttribute("aria-expanded", "false");
+          menuToggle?.setAttribute("aria-label", "Ouvrir le menu");
+
+          history.pushState(null, "", targetId);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
